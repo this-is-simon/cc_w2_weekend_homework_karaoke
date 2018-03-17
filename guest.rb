@@ -11,4 +11,8 @@ class Guest
    return "Hi, my name is #{@name}"
  end
 
+ def pay_entry(room)
+   @wallet -= room.fee
+ end
+
 end

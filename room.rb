@@ -1,11 +1,14 @@
 class Room
-  attr_reader :name, :occupants, :playlist
+  attr_reader :name, :occupants, :playlist, :fee
+  attr_accessor :till
 
-  def initialize(input_name)
+  def initialize(input_name, input_till)
     #We're only passing one parameter because we've decided we only want to set a name for a 'newed up' room (Room 101) and not any guests
     @name = input_name
     @occupants = []
     @playlist = []
+    @till = input_till
+    @fee = 10
   end
 
   def add_guest_to_room(guest_object)
@@ -31,6 +34,10 @@ class Room
   def remove_song_from_playlist(song_object)
     @playlist.delete(song_object)
     return @playlist
+  end
+
+  def add_fee_to_till
+    @till += @fee
   end
 
 end
